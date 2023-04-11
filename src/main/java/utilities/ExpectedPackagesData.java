@@ -13,4 +13,9 @@ public class ExpectedPackagesData {
     public static String classicPackagePriceUAE= "10.9";
     public static String litePackagePriceUAE= "5.4";
     public static String packageCurrencyUAE = "دولار أمريكي";
+    //*********Palestine*********************//
+    public static String premiumPackagePricePalestine= "7.2";
+    public static String classicPackagePricePalestine= "4.8";
+    public static String litePackagePricePalestine= "2.4";
+    public static String packageCurrencyPalestine = "دولار أمريكي";
 }
