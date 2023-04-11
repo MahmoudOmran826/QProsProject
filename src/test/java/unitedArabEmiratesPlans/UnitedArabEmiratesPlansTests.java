@@ -8,7 +8,7 @@ import utilities.ExpectedPackagesData;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class UnitedArabEmiratesTests extends BaseTests {
+public class UnitedArabEmiratesPlansTests extends BaseTests {
     @Test
     public void testPremiumPlan(){
         UnitedArabEmiratesPage unitedArabEmiratesPage=homePage.
@@ -22,7 +22,7 @@ public class UnitedArabEmiratesTests extends BaseTests {
         String premiumPackagePrice = unitedArabEmiratesPage.getPremiumPackagePrice();
         assertEquals(premiumPackagePrice,ExpectedPackagesData.premiumPackagePriceUAE,
                 String.format("Expected package price to be %s but found %s ",
-                        ExpectedPackagesData.premiumPackagePriceEgypt, premiumPackagePrice));
+                        ExpectedPackagesData.premiumPackagePriceUAE, premiumPackagePrice));
 
         String premiumPackageCurrency = unitedArabEmiratesPage.getPremiumPackageCurrency();
         assertTrue(premiumPackageCurrency.contains(ExpectedPackagesData.packageCurrencyUAE),
