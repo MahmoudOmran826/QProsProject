@@ -8,6 +8,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class EgyptPlansTests extends BaseTests {
+//    TODO: we have a UI issue on the prices of the three packages that should be reported.
 
     @Test
     public void testPremiumPlan(){
@@ -62,7 +63,7 @@ public class EgyptPlansTests extends BaseTests {
                 String.format("Expected package price to be %s but found %s ",
                         ExpectedPackagesData.litePackagePriceEgypt, litePackagePrice));
 
-        String litePackageCurrency = homePage.getPremiumPackageCurrency();
+        String litePackageCurrency = homePage.getLitePackageCurrency();
         assertTrue(litePackageCurrency.contains(ExpectedPackagesData.packageCurrencyEgypt),
                 String.format("Expected package currency to be %s but found %s ",
                         ExpectedPackagesData.packageCurrencyEgypt, litePackageCurrency));

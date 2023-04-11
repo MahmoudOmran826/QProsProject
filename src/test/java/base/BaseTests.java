@@ -7,9 +7,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.HomePage;
 
+import java.time.Duration;
+
 public class BaseTests {
     private WebDriver driver;
     protected HomePage homePage;
+
     @BeforeClass
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -18,6 +21,7 @@ public class BaseTests {
         driver = new ChromeDriver();
         homePage = new HomePage(driver);
         driver.get("https://subscribe.stctv.com/");
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
         driver.manage().window().maximize();
 
     }
@@ -25,10 +29,5 @@ public class BaseTests {
     @AfterClass
     public void teardown() {
         driver.quit();
-    }
-
-    public static void main(String args[]) {
-        BaseTests baseTestsObject = new BaseTests();
-        baseTestsObject.setup();
     }
 }
