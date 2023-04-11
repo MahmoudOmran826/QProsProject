@@ -15,4 +15,7 @@ public class WebElementLocators {
     public static By litePrice = By.xpath("//div[@id='currency-لايت']/b");
     public static By liteCurrency = By.xpath("//div[@id='currency-لايت']/i");
     //***********************************//
+
+    public static By unitedArabEmiratesFlag= By.id("ae");
+    public static By palestineFlag= By.id("ps");
 }

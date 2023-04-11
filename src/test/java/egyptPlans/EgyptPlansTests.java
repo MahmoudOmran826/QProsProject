@@ -13,19 +13,19 @@ public class EgyptPlansTests extends BaseTests {
     @Test
     public void testPremiumPlan(){
 //        after launching the browser to the home page in the setup method in bas class we assert on the following
-        String premiumPackage = homePage.getPremiumPackageText();
+        String premiumPackage = mainPage.getPremiumPackageText();
         assertTrue(premiumPackage.contains(ExpectedPackagesData.premiumPackageType),
-                String.format("Expected package to be %s but found %s ",
+                String.format(packageErrorMessage,
                         ExpectedPackagesData.premiumPackageType,premiumPackage));
 
-        String premiumPackagePrice = homePage.getPremiumPackagePrice();
+        String premiumPackagePrice = mainPage.getPremiumPackagePrice();
         assertEquals(premiumPackagePrice,ExpectedPackagesData.premiumPackagePriceEgypt,
-                String.format("Expected package price to be %s but found %s ",
+                String.format(priceErrorMessage,
                         ExpectedPackagesData.premiumPackagePriceEgypt, premiumPackagePrice));
 
-        String premiumPackageCurrency = homePage.getPremiumPackageCurrency();
+        String premiumPackageCurrency = mainPage.getPremiumPackageCurrency();
         assertTrue(premiumPackageCurrency.contains(ExpectedPackagesData.packageCurrencyEgypt),
-                String.format("Expected package currency to be %s but found %s ",
+                String.format(currencyErrorMessage,
                         ExpectedPackagesData.packageCurrencyEgypt,premiumPackageCurrency));
 
     }
@@ -33,19 +33,19 @@ public class EgyptPlansTests extends BaseTests {
     @Test
     public void testClassicPlan(){
 //        after launching the browser to the home page in the setup method in bas class we assert on the following
-        String classicPackage = homePage.getClassicPackageText();
+        String classicPackage = mainPage.getClassicPackageText();
         assertTrue(classicPackage.contains(ExpectedPackagesData.classicPackageType),
-                String.format("Expected package to be %s but found %s ",
+                String.format(packageErrorMessage,
                         ExpectedPackagesData.classicPackageType,classicPackage));
 
-        String classicPackagePrice = homePage.getClassicPackagePrice();
+        String classicPackagePrice = mainPage.getClassicPackagePrice();
         assertEquals(classicPackagePrice,ExpectedPackagesData.classicPackagePriceEgypt,
-                String.format("Expected package price to be %s but found %s ",
+                String.format(priceErrorMessage,
                         ExpectedPackagesData.classicPackagePriceEgypt, classicPackagePrice));
 
-        String classicPackageCurrency = homePage.getClassicPackageCurrency();
+        String classicPackageCurrency = mainPage.getClassicPackageCurrency();
         assertTrue(classicPackageCurrency.contains(ExpectedPackagesData.packageCurrencyEgypt),
-                String.format("Expected package currency to be %s but found %s ",
+                String.format(currencyErrorMessage,
                         ExpectedPackagesData.packageCurrencyEgypt, classicPackageCurrency));
 
     }
@@ -53,19 +53,19 @@ public class EgyptPlansTests extends BaseTests {
     @Test
     public void testLitePlan(){
 //        after launching the browser to the home page in the setup method in bas class we assert on the following
-        String litePackage = homePage.getLitePackageText();
+        String litePackage = mainPage.getLitePackageText();
         assertTrue(litePackage.contains(ExpectedPackagesData.litePackageType),
-                String.format("Expected package to be %s but found %s ",
+                String.format(packageErrorMessage,
                         ExpectedPackagesData.litePackageType,litePackage));
 
-        String litePackagePrice = homePage.getLitePackagePrice();
+        String litePackagePrice = mainPage.getLitePackagePrice();
         assertEquals(litePackagePrice,ExpectedPackagesData.litePackagePriceEgypt,
-                String.format("Expected package price to be %s but found %s ",
+                String.format(priceErrorMessage,
                         ExpectedPackagesData.litePackagePriceEgypt, litePackagePrice));
 
-        String litePackageCurrency = homePage.getLitePackageCurrency();
+        String litePackageCurrency = mainPage.getLitePackageCurrency();
         assertTrue(litePackageCurrency.contains(ExpectedPackagesData.packageCurrencyEgypt),
-                String.format("Expected package currency to be %s but found %s ",
+                String.format(currencyErrorMessage,
                         ExpectedPackagesData.packageCurrencyEgypt, litePackageCurrency));
 
     }

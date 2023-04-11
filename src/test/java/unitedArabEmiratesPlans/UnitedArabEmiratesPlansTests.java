@@ -2,76 +2,84 @@ package unitedArabEmiratesPlans;
 
 import base.BaseTests;
 import org.testng.annotations.Test;
-import pages.UnitedArabEmiratesPage;
 import utilities.ExpectedPackagesData;
+import utilities.WebElementLocators;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class UnitedArabEmiratesPlansTests extends BaseTests {
     @Test
-    public void testPremiumPlan(){
-        UnitedArabEmiratesPage unitedArabEmiratesPage=homePage.
-                clickCountryButton().selectUAEFlag();
-        String premiumPackage =unitedArabEmiratesPage.getPremiumPackageText();
+    public void testPremiumPlan() {
+
+        String premiumPackage = mainPage.
+                clickCountryButton().
+                selectFlag(WebElementLocators.unitedArabEmiratesFlag).
+                getPremiumPackageText();
 
         assertTrue(premiumPackage.contains(ExpectedPackagesData.premiumPackageType),
-                String.format("Expected package to be %s but found %s ",
-                        ExpectedPackagesData.premiumPackageType,premiumPackage));
+                String.format(packageErrorMessage,
+                        ExpectedPackagesData.premiumPackageType, premiumPackage));
 
-        String premiumPackagePrice = unitedArabEmiratesPage.getPremiumPackagePrice();
-        assertEquals(premiumPackagePrice,ExpectedPackagesData.premiumPackagePriceUAE,
-                String.format("Expected package price to be %s but found %s ",
+        String premiumPackagePrice = mainPage.getPremiumPackagePrice();
+        assertEquals(premiumPackagePrice, ExpectedPackagesData.premiumPackagePriceUAE,
+                String.format(priceErrorMessage,
                         ExpectedPackagesData.premiumPackagePriceUAE, premiumPackagePrice));
 
-        String premiumPackageCurrency = unitedArabEmiratesPage.getPremiumPackageCurrency();
+        String premiumPackageCurrency = mainPage.getPremiumPackageCurrency();
         assertTrue(premiumPackageCurrency.contains(ExpectedPackagesData.packageCurrencyUAE),
-                String.format("Expected package currency to be %s but found %s ",
-                        ExpectedPackagesData.packageCurrencyUAE,premiumPackageCurrency));
+                String.format(currencyErrorMessage,
+                        ExpectedPackagesData.packageCurrencyUAE, premiumPackageCurrency));
 
     }
 
     @Test
-    public void testClassicPlan(){
-        UnitedArabEmiratesPage unitedArabEmiratesPage=homePage.
-                clickCountryButton().selectUAEFlag();
-        String classicPackage =unitedArabEmiratesPage.getClassicPackageText();
+    public void testClassicPlan() {
+
+
+        String classicPackage = mainPage.
+                clickCountryButton().
+                selectFlag(WebElementLocators.unitedArabEmiratesFlag).
+                getClassicPackageText();
 
         assertTrue(classicPackage.contains(ExpectedPackagesData.classicPackageType),
-                String.format("Expected package to be %s but found %s ",
-                        ExpectedPackagesData.classicPackageType,classicPackage));
+                String.format(packageErrorMessage,
+                        ExpectedPackagesData.classicPackageType, classicPackage));
 
-        String classicPackagePrice = unitedArabEmiratesPage.getClassicPackagePrice();
-        assertEquals(classicPackagePrice,ExpectedPackagesData.classicPackagePriceUAE,
-                String.format("Expected package price to be %s but found %s ",
+        String classicPackagePrice = mainPage.getClassicPackagePrice();
+        assertEquals(classicPackagePrice, ExpectedPackagesData.classicPackagePriceUAE,
+                String.format(priceErrorMessage,
                         ExpectedPackagesData.classicPackagePriceUAE, classicPackagePrice));
 
-        String classicPackageCurrency = unitedArabEmiratesPage.getClassicPackageCurrency();
+        String classicPackageCurrency = mainPage.getClassicPackageCurrency();
         assertTrue(classicPackageCurrency.contains(ExpectedPackagesData.packageCurrencyUAE),
-                String.format("Expected package currency to be %s but found %s ",
-                        ExpectedPackagesData.packageCurrencyUAE,classicPackageCurrency));
+                String.format(currencyErrorMessage,
+                        ExpectedPackagesData.packageCurrencyUAE, classicPackageCurrency));
 
     }
 
     @Test
-    public void testLitePlan(){
-        UnitedArabEmiratesPage unitedArabEmiratesPage=homePage.
-                clickCountryButton().selectUAEFlag();
-        String litePackage =unitedArabEmiratesPage.getLitePackageText();
+    public void testLitePlan() {
+
+
+        String litePackage = mainPage.
+                clickCountryButton().
+                selectFlag(WebElementLocators.unitedArabEmiratesFlag).
+                getLitePackageText();
 
         assertTrue(litePackage.contains(ExpectedPackagesData.litePackageType),
-                String.format("Expected package to be %s but found %s ",
-                        ExpectedPackagesData.litePackageType,litePackage));
+                String.format(packageErrorMessage,
+                        ExpectedPackagesData.litePackageType, litePackage));
 
-        String litePackagePrice = unitedArabEmiratesPage.getLitePackagePrice();
-        assertEquals(litePackagePrice,ExpectedPackagesData.litePackagePriceUAE,
-                String.format("Expected package price to be %s but found %s ",
+        String litePackagePrice = mainPage.getLitePackagePrice();
+        assertEquals(litePackagePrice, ExpectedPackagesData.litePackagePriceUAE,
+                String.format(priceErrorMessage,
                         ExpectedPackagesData.litePackagePriceUAE, litePackagePrice));
 
-        String litePackageCurrency = unitedArabEmiratesPage.getLitePackageCurrency();
+        String litePackageCurrency = mainPage.getLitePackageCurrency();
         assertTrue(litePackageCurrency.contains(ExpectedPackagesData.packageCurrencyUAE),
-                String.format("Expected package currency to be %s but found %s ",
-                        ExpectedPackagesData.packageCurrencyUAE,litePackageCurrency));
+                String.format(currencyErrorMessage,
+                        ExpectedPackagesData.packageCurrencyUAE, litePackageCurrency));
 
     }
 }
