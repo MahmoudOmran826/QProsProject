@@ -10,68 +10,70 @@ import java.time.Duration;
 
 public class PalestinePage {
     private WebDriver driver;
+    WebDriverWait wait;
 
     public PalestinePage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
-    //    Locators
-    By premiumPackage = WebElementLocators.premiumPackage;
-    By premiumPrice=WebElementLocators.premiumPrice;
-    By premiumCurrency=WebElementLocators.premiumCurrency;
-    //***********************************//
-    By classicPackage = WebElementLocators.classicPackage;
 
-    By classicPrice = WebElementLocators.classicPrice;
-    By classicCurrency= WebElementLocators.classicCurrency;
+    //    Locators
+    private By premiumPackage = WebElementLocators.premiumPackage;
+    private By premiumPrice = WebElementLocators.premiumPrice;
+    private By premiumCurrency = WebElementLocators.premiumCurrency;
     //***********************************//
-    By litePackage = WebElementLocators.litePackage;
-    By litePrice = WebElementLocators.litePrice;
-    By liteCurrency = WebElementLocators.liteCurrency;
+    private By classicPackage = WebElementLocators.classicPackage;
+
+    private By classicPrice = WebElementLocators.classicPrice;
+    private By classicCurrency = WebElementLocators.classicCurrency;
+    //***********************************//
+    private By litePackage = WebElementLocators.litePackage;
+    private By litePrice = WebElementLocators.litePrice;
+    private By liteCurrency = WebElementLocators.liteCurrency;
     //***********************************//
 
     //********************************************************************************************************//
 //    Actions
-    public String getPremiumPackageText(){
+    public String getPremiumPackageText() {
         return getElementText(premiumPackage);
     }
 
-    public String getPremiumPackagePrice(){
+    public String getPremiumPackagePrice() {
         return getElementText(premiumPrice);
     }
 
-    public String getPremiumPackageCurrency(){
+    public String getPremiumPackageCurrency() {
         return getElementText(premiumCurrency);
     }
 
     //********************************************************/
-    public String getClassicPackageText(){
+    public String getClassicPackageText() {
         return getElementText(classicPackage);
     }
 
-    public String getClassicPackagePrice(){
+    public String getClassicPackagePrice() {
         return getElementText(classicPrice);
     }
 
-    public String getClassicPackageCurrency(){
+    public String getClassicPackageCurrency() {
         return getElementText(classicCurrency);
     }
 
     //*****************************************************//
 
-    public String getLitePackageText(){
+    public String getLitePackageText() {
         return getElementText(litePackage);
     }
 
-    public String getLitePackagePrice(){
+    public String getLitePackagePrice() {
         return getElementText(litePrice);
     }
 
-    public String getLitePackageCurrency(){
+    public String getLitePackageCurrency() {
         return getElementText(liteCurrency);
     }
 
-    private String getElementText(By element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    private String getElementText(By element) {
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
         return driver.findElement(element).getText();
     }

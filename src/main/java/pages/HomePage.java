@@ -9,29 +9,30 @@ import java.time.Duration;
 
 public class HomePage {
     private WebDriver driver;
-
+    private WebDriverWait wait;
     public HomePage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 //    Validate the Subscription Packages – Type & Price and Currency for all Countries
 //    Locators
-    By premiumPackage = WebElementLocators.premiumPackage;
-    By premiumPrice=WebElementLocators.premiumPrice;
-    By premiumCurrency=WebElementLocators.premiumCurrency;
+    private By premiumPackage = WebElementLocators.premiumPackage;
+    private By premiumPrice=WebElementLocators.premiumPrice;
+    private By premiumCurrency=WebElementLocators.premiumCurrency;
     //***********************************//
-    By classicPackage = WebElementLocators.classicPackage;
+    private By classicPackage = WebElementLocators.classicPackage;
 
-    By classicPrice = WebElementLocators.classicPrice;
-    By classicCurrency= WebElementLocators.classicCurrency;
+    private By classicPrice = WebElementLocators.classicPrice;
+    private By classicCurrency= WebElementLocators.classicCurrency;
     //***********************************//
-    By litePackage = WebElementLocators.litePackage;
-    By litePrice = WebElementLocators.litePrice;
-    By liteCurrency = WebElementLocators.liteCurrency;
+    private By litePackage = WebElementLocators.litePackage;
+    private By litePrice = WebElementLocators.litePrice;
+    private By liteCurrency = WebElementLocators.liteCurrency;
     //***********************************//
 
-    By countryButton= By.id("country-btn");
-    By unitedArabEmiratesFlag= By.id("ae");
-    By palestineFlag= By.id("ps");
+    private By countryButton= By.id("country-btn");
+    private By unitedArabEmiratesFlag= By.id("ae");
+    private By palestineFlag= By.id("ps");
 
     //********************************************************************************************************//
 //    Actions
@@ -75,7 +76,6 @@ public class HomePage {
     }
 
     public HomePage clickCountryButton(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(countryButton));
         driver.findElement(countryButton).click();
         return new HomePage(driver);
@@ -93,12 +93,11 @@ public class HomePage {
 
 
     private String getElementText(By element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
         return driver.findElement(element).getText();
     }
     private void selectFlag(By flagId){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
         wait.until(ExpectedConditions.elementToBeClickable(flagId));
         driver.findElement(flagId).click();
     }
