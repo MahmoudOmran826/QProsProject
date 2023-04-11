@@ -4,88 +4,91 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utilities.WebElementLocators;
+
 import java.time.Duration;
 
 public class MainPage {
     private WebDriver driver;
     private WebDriverWait wait;
+
     public MainPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
-//    Validate the Subscription Packages – Type & Price and Currency for all Countries
+
+    //    Validate the Subscription Packages – Type & Price and Currency for all Countries
 //    Locators
-    private By premiumPackage = WebElementLocators.premiumPackage;
-    private By premiumPrice=WebElementLocators.premiumPrice;
-    private By premiumCurrency=WebElementLocators.premiumCurrency;
+    private By premiumPackage = By.id("name-بريميوم");
+    private By premiumPrice = By.xpath("//div[@id='currency-بريميوم']/b");
+    private By premiumCurrency = By.xpath("//div[@id='currency-بريميوم']/i");
     //***********************************//
-    private By classicPackage = WebElementLocators.classicPackage;
+    private By classicPackage = By.id("name-الأساسية");
 
-    private By classicPrice = WebElementLocators.classicPrice;
-    private By classicCurrency= WebElementLocators.classicCurrency;
+    private By classicPrice = By.xpath("//div[@id='currency-الأساسية']/b");
+    private By classicCurrency = By.xpath("//div[@id='currency-الأساسية']/i");
     //***********************************//
-    private By litePackage = WebElementLocators.litePackage;
-    private By litePrice = WebElementLocators.litePrice;
-    private By liteCurrency = WebElementLocators.liteCurrency;
+    private By litePackage = By.id("name-لايت");
+    private By litePrice = By.xpath("//div[@id='currency-لايت']/b");
+    private By liteCurrency = By.xpath("//div[@id='currency-لايت']/i");
     //***********************************//
 
-    private By countryButton= By.id("country-btn");
+    private By countryButton = By.id("country-btn");
 
 
     //********************************************************************************************************//
 //    Actions
-    public String getPremiumPackageText(){
+    public String getPremiumPackageText() {
         return getElementText(premiumPackage);
     }
 
-    public String getPremiumPackagePrice(){
+    public String getPremiumPackagePrice() {
         return getElementText(premiumPrice);
     }
 
-    public String getPremiumPackageCurrency(){
+    public String getPremiumPackageCurrency() {
         return getElementText(premiumCurrency);
     }
 
     //********************************************************/
-    public String getClassicPackageText(){
+    public String getClassicPackageText() {
         return getElementText(classicPackage);
     }
 
-    public String getClassicPackagePrice(){
+    public String getClassicPackagePrice() {
         return getElementText(classicPrice);
     }
 
-    public String getClassicPackageCurrency(){
+    public String getClassicPackageCurrency() {
         return getElementText(classicCurrency);
     }
 
     //*****************************************************//
 
-    public String getLitePackageText(){
+    public String getLitePackageText() {
         return getElementText(litePackage);
     }
 
-    public String getLitePackagePrice(){
+    public String getLitePackagePrice() {
         return getElementText(litePrice);
     }
 
-    public String getLitePackageCurrency(){
+    public String getLitePackageCurrency() {
         return getElementText(liteCurrency);
     }
 
-    public MainPage clickCountryButton(){
+    public MainPage clickCountryButton() {
         wait.until(ExpectedConditions.elementToBeClickable(countryButton));
         driver.findElement(countryButton).click();
         return new MainPage(driver);
     }
 
 
-    private String getElementText(By element){
+    private String getElementText(By element) {
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
         return driver.findElement(element).getText();
     }
-    public MainPage selectFlag(By flagId){
+
+    public MainPage selectFlag(By flagId) {
 
         wait.until(ExpectedConditions.elementToBeClickable(flagId));
         driver.findElement(flagId).click();

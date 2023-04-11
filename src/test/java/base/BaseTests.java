@@ -10,9 +10,9 @@ import pages.MainPage;
 import java.time.Duration;
 
 public class BaseTests {
-    protected String packageErrorMessage= "Expected package to be %s but found %s ";
-    protected String priceErrorMessage= "Expected package price to be %s but found %s ";
-    protected String currencyErrorMessage= "Expected package currency to be %s but found %s ";
+    protected String packageErrorMessage = "Expected package to be %s but found %s ";
+    protected String priceErrorMessage = "Expected package price to be %s but found %s ";
+    protected String currencyErrorMessage = "Expected package currency to be %s but found %s ";
     private WebDriver driver;
     protected MainPage mainPage;
 
