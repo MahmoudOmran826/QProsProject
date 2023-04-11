@@ -52,4 +52,26 @@ public class UnitedArabEmiratesTests extends BaseTests {
                         ExpectedPackagesData.packageCurrencyUAE,classicPackageCurrency));
 
     }
+
+    @Test
+    public void testLitePlan(){
+        UnitedArabEmiratesPage unitedArabEmiratesPage=homePage.
+                clickCountryButton().selectUAEFlag();
+        String litePackage =unitedArabEmiratesPage.getLitePackageText();
+
+        assertTrue(litePackage.contains(ExpectedPackagesData.litePackageType),
+                String.format("Expected package to be %s but found %s ",
+                        ExpectedPackagesData.litePackageType,litePackage));
+
+        String litePackagePrice = unitedArabEmiratesPage.getLitePackagePrice();
+        assertEquals(litePackagePrice,ExpectedPackagesData.classicPackagePriceUAE,
+                String.format("Expected package price to be %s but found %s ",
+                        ExpectedPackagesData.litePackagePriceUAE, litePackagePrice));
+
+        String litePackageCurrency = unitedArabEmiratesPage.getLitePackageCurrency();
+        assertTrue(litePackageCurrency.contains(ExpectedPackagesData.packageCurrencyUAE),
+                String.format("Expected package currency to be %s but found %s ",
+                        ExpectedPackagesData.packageCurrencyUAE,litePackageCurrency));
+
+    }
 }
