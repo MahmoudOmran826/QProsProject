@@ -31,6 +31,7 @@ public class HomePage {
 
     By countryButton= By.id("country-btn");
     By unitedArabEmiratesFlag= By.id("ae");
+    By palestineFlag= By.id("ps");
 
     //********************************************************************************************************//
 //    Actions
@@ -83,6 +84,11 @@ public class HomePage {
     public UnitedArabEmiratesPage selectUAEFlag(){
         selectFlag(unitedArabEmiratesFlag);
         return new UnitedArabEmiratesPage(driver);
+    }
+
+    public PalestinePage selectPalestineFlag(){
+        selectFlag(palestineFlag);
+        return new PalestinePage(driver);
     }
 
 
