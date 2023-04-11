@@ -27,6 +27,11 @@ public class HomePage {
     By litePrice = By.xpath("//div[@id='currency-لايت']/b");
     By liteCurrency = By.xpath("//div[@id='currency-لايت']/i");
     //***********************************//
+
+    By countryButton= By.id("country-btn");
+    By unitedArabEmiratesFlag= By.id("ae");
+
+    //********************************************************************************************************//
 //    Actions
     public String getPremiumPackageText(){
         return getElementText(premiumPackage);
@@ -67,10 +72,27 @@ public class HomePage {
         return getElementText(liteCurrency);
     }
 
+    public HomePage clickCountryButton(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(countryButton));
+        driver.findElement(countryButton).click();
+        return new HomePage(driver);
+    }
+
+    public UnitedArabEmiratesPage selecetUAEFlag(){
+        selectFlag(unitedArabEmiratesFlag);
+        return new UnitedArabEmiratesPage(driver);
+    }
+
 
     private String getElementText(By element){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
         return driver.findElement(element).getText();
+    }
+    private void selectFlag(By flagId){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(flagId));
+        driver.findElement(flagId).click();
     }
 }
