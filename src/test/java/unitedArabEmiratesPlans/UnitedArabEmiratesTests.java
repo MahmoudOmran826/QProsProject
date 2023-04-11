@@ -64,7 +64,7 @@ public class UnitedArabEmiratesTests extends BaseTests {
                         ExpectedPackagesData.litePackageType,litePackage));
 
         String litePackagePrice = unitedArabEmiratesPage.getLitePackagePrice();
-        assertEquals(litePackagePrice,ExpectedPackagesData.classicPackagePriceUAE,
+        assertEquals(litePackagePrice,ExpectedPackagesData.litePackagePriceUAE,
                 String.format("Expected package price to be %s but found %s ",
                         ExpectedPackagesData.litePackagePriceUAE, litePackagePrice));
 
